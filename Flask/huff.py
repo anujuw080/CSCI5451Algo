@@ -104,6 +104,7 @@ def huffman(txt):
     print(root.data[1])
     postorder(root, '', ret_list)
     print(ret_list)
+    ret_list.sort(key=lambda t: len(t[1]))
     return list(ret_list)
 
 
