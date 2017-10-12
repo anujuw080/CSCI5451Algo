@@ -99,6 +99,12 @@
 	     background: url('static/imgs/wallpaper2.png');
 	     background-size:cover;
 	 }
+	 .item-7{
+	     /* background:url('https://static.pexels.com/photos/6529/lake-kajak-kayak-large.jpg'); */
+	     background: url('static/imgs/wallpaper2.png');
+	     background-size:cover;
+	 }
+
 	 
 	 *:target ~ .item-1 {
 	     opacity: 0;
@@ -106,7 +112,7 @@
 	 #item-1:target ~ .item-1 {
 	     opacity: 1;
 	 }
-	 #item-2:target ~ .item-2, #item-3:target ~ .item-3, #item-4:target ~ .item-4,#item-5:target ~ .item-5, #item-6:target ~ .item-6 {
+	 #item-2:target ~ .item-2, #item-3:target ~ .item-3, #item-4:target ~ .item-4,#item-5:target ~ .item-5, #item-6:target ~ .item-6,  #item-7:target ~ .item-7{
 	     z-index: 3;
 	     opacity: 1;
 	 }
@@ -189,6 +195,7 @@
 			    <span id="item-4"></span>
 			    <span id="item-5"></span>
 			    <span id="item-6"></span>
+			    <span id="item-7"></span>
 			    
 			    
 			    <div class="carousel-item item-1">
@@ -285,6 +292,88 @@
 
 				
 				<a class="arrow arrow-prev" href="#item-5"></a>
+				<a class="arrow arrow-next" href="#item-7"></a>
+			    </div>
+
+			    <div class="carousel-item item-7">
+				<h1> IMPLEMENTATION </h1>
+				<div class="container">
+				    <p style="width:900px; height:600px; background-color:white; overflow:scroll; font-size:25px; align:center">
+					def huffman(txt):<br/>
+					&ensp;root = Tree()<br/>
+					&ensp;right_leaf = Tree()<br/>
+					&ensp;left_leaf = Tree()<br/>
+
+					&ensp;ret_list = []<br/>
+
+					&ensp;right_leaf.data = 25<br/>
+					&ensp;left_leaf.data = 20<br/>
+
+					&ensp;root.left = left_leaf<br/>
+					&ensp;root.right = right_leaf<br/>
+					&ensp;str = txt<br/>
+					&ensp;str_l = []<br/>
+
+					&ensp;for x in str:<br/>
+					&ensp;&ensp;str_l.append(x)<br/>
+
+					&ensp;freq_list = []<br/>
+					&ensp;while((not str_l) == False):<br/>
+					&ensp;&ensp;temp_str = str_l<br/>
+					&ensp;&ensp;for x in temp_str:<br/>
+					&ensp;&ensp;&ensp;temp = 0<br/>
+					&ensp;&ensp;&ensp;while(True):<br/>
+					&ensp;&ensp;&ensp;&ensp;if(x in temp_str):<br/>
+					&ensp;&ensp;&ensp;&ensp;&ensp;temp = temp + 1<br/>
+					&ensp;&ensp;&ensp;&ensp;&ensp;temp_str.remove(x)<br/>
+					&ensp;&ensp;&ensp;&ensp;else:<br/>
+					&ensp;&ensp;&ensp;&ensp;&ensp;break<br/>
+					&ensp;&ensp;&ensp;t = Tree()<br/>
+					&ensp;&ensp;&ensp;t.left = None<br/>
+					&ensp;&ensp;&ensp;t.right = None<br/>
+					&ensp;&ensp;&ensp;t.data = (x, temp)<br/>
+					&ensp;&ensp;&ensp;freq_list.append(t)<br/>
+					&ensp;&ensp;&ensp;str_l = list(temp_str)<br/>
+
+					&ensp;&ensp;&ensp;freq_list.sort(key=lambda t: t.data[1])<br/>
+					&ensp;&ensp;&ensp;freq_list.reverse()<br/>
+
+					&ensp;&ensp;&ensp;l = None<br/>
+					&ensp;&ensp;&ensp;r = None<br/>
+					&ensp;&ensp;&ensp;root = None<br/>
+					&ensp;&ensp;&ensp;while((len(freq_list)) > 1):<br/>
+					&ensp;&ensp;&ensp;&ensp;l = freq_list.pop()<br/>
+					&ensp;&ensp;&ensp;&ensp;r = freq_list.pop()<br/>
+					&ensp;&ensp;&ensp;&ensp;t = Tree()<br/>
+					&ensp;&ensp;&ensp;&ensp;t.left = l<br/>
+					&ensp;&ensp;&ensp;&ensp;t.right = r<br/>
+
+					&ensp;&ensp;&ensp;&ensp;l_data = l.data[0]<br/>
+					&ensp;&ensp;&ensp;&ensp;r_data = r.data[0]<br/>
+
+					&ensp;&ensp;&ensp;&ensp;res = l_data + r_data<br/>
+
+					&ensp;&ensp;&ensp;&ensp;t.data = (res, (l.data[1] + r.data[1]))<br/>
+
+					&ensp;&ensp;&ensp;&ensp;root = t<br/>
+					&ensp;&ensp;&ensp;&ensp;freq_list.append(t)<br/>
+					&ensp;&ensp;&ensp;&ensp;freq_list.sort(key=lambda t: t.data[1])<br/>
+					&ensp;&ensp;&ensp;&ensp;freq_list.reverse()<br/>
+
+					#got the list<br/>
+
+					#now create tree<br/>
+					&ensp;&ensp;print(root.data[0])<br/>
+					&ensp;&ensp;print(root.data[1])<br/>
+					&ensp;&ensp;postorder(root, '', ret_list)<br/>
+					&ensp;&ensp;print(ret_list)<br/>
+					&ensp;&ensp;return list(ret_list)<br/>
+
+					
+				    </p>
+				</div
+				
+				<a class="arrow arrow-prev" href="#item-6"></a>
 				<a class="arrow arrow-next" href="#item-1"></a>
 			    </div>
 			    
