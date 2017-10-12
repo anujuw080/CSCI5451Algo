@@ -14,9 +14,7 @@
 	</script>
 
 	<style>
-
 	 h1, h2, h3 {
-
 	     color:white
 	 }
 	 
@@ -47,21 +45,17 @@
 	     -webkit-tap-highlight-color: rgba(0,0,0,0);
 	     background: url("http://dancort.es/assets/img/css-carousel/carousel-arrow-dark.png") 50% 50% / 20px no-repeat;
 	 }
-
 	 .arrow-prev{
 	     left:0;
 	 }
-
 	 .arrow-next{
 	     right:0;
 	     -webkit-transform: rotate(180deg);
 	     transform: rotate(180deg);
 	 }
-
 	 .light{
 	     color:white;
 	 }
-
 	 @media (max-width: 480px) {
 	     .arrow, .light .arrow {
 		 background-size: 10px;
@@ -69,12 +63,10 @@
 	     }
 	 }
 	 }
-
 	 /*Select every element*/
 	 [id^="item"] {
 	     display: none;
 	 }
-
 	 .item-1 {
 	     z-index: 2;
 	     opacity: 1;
@@ -92,19 +84,16 @@
 	     background: url('static/imgs/wallpaper2.png');
 	     background-size:cover;
 	 }
-
 	 .item-4{
 	     /* background:url('https://static.pexels.com/photos/6529/lake-kajak-kayak-large.jpg'); */
 	     background: url('static/imgs/wallpaper2.png');
 	     background-size:cover;
 	 }
-
 	 .item-5{
 	     /* background:url('https://static.pexels.com/photos/6529/lake-kajak-kayak-large.jpg'); */
 	     background: url('static/imgs/wallpaper2.png');
 	     background-size:cover;
 	 }
-
 	 .item-6{
 	     /* background:url('https://static.pexels.com/photos/6529/lake-kajak-kayak-large.jpg'); */
 	     background: url('static/imgs/wallpaper2.png');
@@ -114,11 +103,9 @@
 	 *:target ~ .item-1 {
 	     opacity: 0;
 	 }
-
 	 #item-1:target ~ .item-1 {
 	     opacity: 1;
 	 }
-
 	 #item-2:target ~ .item-2, #item-3:target ~ .item-3, #item-4:target ~ .item-4,#item-5:target ~ .item-5, #item-6:target ~ .item-6 {
 	     z-index: 3;
 	     opacity: 1;
@@ -142,8 +129,11 @@
 		 $.getJSON($SCRIPT_ROOT + '/_textmanipulator', {
 		     txt: $('#txtip').val(),
 		 }, function(data) {
-		     $('#result').text(data.result);
-
+		     var temp_str = "";
+		     $.each(data.result, function() {
+			 temp_str += this + "<br/>";	 
+		     });
+		     $('#result').html(temp_str);
 		 });
 		 return false;
 	     };
@@ -273,13 +263,13 @@
 				    <h2 style="text-align: center;">f = 101</h2>
 				</p>
 
-				     
+				
 				<a class="arrow arrow-prev" href="#item-4"></a>
 				<a class="arrow arrow-next" href="#item-6"></a>
 			    </div>
 
 			    <div class="carousel-item item-6">
-				<h2>Item 3</h2>
+				<h2>TRY IT YOURSELF!</h2>
 				<div class="container" >
 				    <form>
 					<div class="form-group">
