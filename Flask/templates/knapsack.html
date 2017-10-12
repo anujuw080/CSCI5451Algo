@@ -161,7 +161,12 @@
 		     par1 : $('#txtip').val(),
 		     par2 : $('#txtip2').val(),
 		 }, function(data) {
-		     $('#result').text(data);
+		     var temp_str = "";
+		     $.each(data, function() {
+			 temp_str += this + "<br/>";	 
+		     });
+		     $("#result").html(temp_str);
+		     /* $('#result').text(data);*/
 
 		 });
 		 return false;
@@ -221,8 +226,9 @@
 			    
 			    <div class="carousel-item item-1">
 				<h1><strong>What is the Knapsack Problem?</strong></h1>
+				<br/><br/><br/>
 				<ul>
-				    <li><br/><br/><br/><h2>Given a set of items, where each item has its own
+				    <li><h2>Given a set of items, where each item has its own
 					mass and value, determine the number of each
 					items to include in the collection that will return
 					the largest value while having a total weight that is
@@ -489,15 +495,18 @@
 				    <form>
 					<div class="form-group">
 					    <label for="txt">INPUT TEXT</label>
+					    <h2>Enter n: &nbsp; &nbsp; &nbsp;</h2>
+					    <textarea cols="8" rows="1" id="txtip"></textarea>
 					    <br/>
-					    <textarea cols="100" rows="3" id="txtip"></textarea>
-					    <textarea cols="100" rows="3" id="txtip2"></textarea>
+					    <h2>Enter W: &nbsp; &nbsp; &nbsp;</h2>
+					    <textarea cols="8" rows="1" id="txtip2"></textarea>
+					    <br/>
 					    
 					</div>
 					<button type="submit" class="btn btn-default" id="sub">Submit</button>
 				    </form>
 				</div>
-				<h2><span id="result" style="align=center;"></span></h2>
+				<h2><span id="result" ></span></h2>
 
 				
 				<a class="arrow arrow-prev" href="#item-5"></a>
