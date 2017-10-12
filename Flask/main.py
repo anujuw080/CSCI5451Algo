@@ -28,12 +28,14 @@ def text_manipulator():
 
 @app.route('/_knapsack')
 def knap_func():
-    par1 = int(request.args.get('par1'))
+    par1 = request.args.get('par1')
     #print(par1)
 
-    par2 = int(request.args.get('par2'))
+    par2 = request.args.get('par2')
+
+    par3 = int(request.args.get('par3'))
     #print(par2)
-    res = kp.knapsack(par1,par2)
+    res = kp.knapsack(par1,par2,par3)
     res2 = np.array(res)
 
     
